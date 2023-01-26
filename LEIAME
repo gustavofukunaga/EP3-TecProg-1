@@ -1,0 +1,49 @@
+AUTOR:
+Gustavo Ueti Fukunaga, 11207651, gustavofukunaga@usp.br
+
+DESCRIÇÃO:
+O programa é composto por três arquivos:
+vetoraleatorio.c:
+    Gera um vetor com números alatórios do tipo long long.
+    Implementação de uma biblioteca dinâmica
+
+propriedadesnumericas.c:
+    Testa se um número é primo, par, quadrado perfeito, cubo perfeito, Fibonacci ou fatorial.
+    Implementação de uma biblioteca estática
+
+testa.c:
+    Realiza testes utilizando os programas acima e apresenta informações referentes ao tempo de execução.
+
+COMO EXECUTAR:
+Gerar um arquivo de cofiguração do doxygen:
+
+$doxygen -g
+
+Editar o arquivo Doxyfile:
+GENERATE_LATEX = NO
+OUTPUT_LANGUAGE = Brazilian
+OPTIMIZE_OUTPUT_FOR_C = YES
+GENERATE_TREEVIEW = YES
+INPUT = teste.c propriedadesnumericas.h vetoraleatorio.h
+EXTRACT_ALL = YES 
+
+Executar o bash script com os comandos:
+
+$chmod 777 compila.sh
+$./compila.sh
+$./testa
+
+É possível modificar a seed a ser usada em srand() e o tamanho do vetor de testes em testa.c
+
+TESTES:
+O programda de teste teste.c testa as funções ehPar(), ehPrimo(), ehQuadradoPerfeito(), ehCuboPerfeito(), 
+ehFibonacci() e ehFatorial() de propriedadesnumericas.h com os valores retornados pela função criaVetorAleatorio() 
+de vetoraleatorio.h e pra cada valor calcula a frequência que cada função retornou 1 e o tempo médio, mínimo e máximo 
+que cada função testada gastou utilizando a função gettimeofday() de sys/time.h, armazena os tempos nos vetores tempos[6], 
+min[6] e max[6]. Por fim, imprime os tempos de cada função testada.
+
+DEPENDÊNCIAS:
+programa foi executado com sucesso com:
+Versão do bash: bash 5.1.16
+Versão do kernel do linux: 5.15.0-50-generic
+Versão da SO: KDE neon 5.26 x86_64
